@@ -70,18 +70,18 @@ void animation(){
 
    switch(num){
    case 1:
-     image(legrup, dinoX, dinoY, 50, 70);
+     image(legrup, dinoX, dinoY+7, 50, 70);
      num++;
      break;
       
    case 2:
-     image(leglup, dinoX+6, dinoY-4, 50 ,70);
+     image(leglup, dinoX, dinoY+7,50 ,70);
      num++;
      break;
      
    default:
      num = 1;
-     image(dino, dinoX, dinoY, 50 ,70);
+     image(dino, dinoX, dinoY+7, 50 ,70);
 
   }
   delay(70); 
