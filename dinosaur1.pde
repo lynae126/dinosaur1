@@ -2,6 +2,7 @@ PImage dino, legrup, leglup, background;
 int bgX, bgY, dinoX, dinoY, score, gravity, num = 1;
 boolean gameRun = true;
 cactus c1;
+Bird[] birdArray;
 
 void setup(){
   size(1200,400);
@@ -18,6 +19,10 @@ void setup(){
   c1 = new cactus(10);
   image(legrup, dinoX, dinoY, 60, 80);
   image(leglup, dinoX, dinoY, 60, 80);
+  birdArray = new Bird[4];
+  for(int i=0; i<birdArray.length;i++){
+    birdArray [i]=new Bird(width+i*400);
+  }
 }
 
 void draw(){
@@ -27,6 +32,7 @@ void draw(){
     gravityPull();
     c1.movecactus();
     animation();
+    moveBird();
   }
 }
 
@@ -79,4 +85,10 @@ void animation(){
 
   }
   delay(70); 
+}
+void moveBird(){
+  for(int i=0; i<birdArray.length;i++){
+    birdArray[i].moveBird(); //call the pipe class methyod for all pipes
+  }
+
 }
