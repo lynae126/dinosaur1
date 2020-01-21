@@ -2,6 +2,7 @@ PImage dino, background;
 int bgX, bgY, dinoX, dinoY, score, gravity;
 boolean gameRun = true;
 cactus c1;
+Bird[] birdArray;
 
 void setup(){
   size(1200,400);
@@ -14,6 +15,10 @@ void setup(){
   score = 0;
   gravity = 4;
   c1 = new cactus(10);
+  birdArray = new Bird[4];
+  for(int i=0; i<birdArray.length;i++){
+    birdArray [i]=new Bird(width+i*400);
+  }
 }
 
 void draw(){
@@ -22,7 +27,7 @@ void draw(){
     checkKeyPresses();
     gravityPull();
     c1.movecactus();
-    
+    moveBird();
   }
 }
 
@@ -52,5 +57,11 @@ void movebg(){
   bgX-=7;
   if(bgX<-width){
     bgX=0;
+  }
+}
+
+void moveBird(){
+  for(int i=0; i<birdArray.length;i++){
+    birdArray[i].moveBird(); //call the pipe class methyod for all pipes
   }
 }

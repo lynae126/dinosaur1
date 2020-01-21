@@ -13,5 +13,10 @@ public class Bird{
   
   void moveBird(){
     image(flapup, birdX,birdY);
+    birdX=-10;
+    if(birdX < -800){
+      birdX = width;
+     space=int(random(0,200));
+    }
   }
 }
