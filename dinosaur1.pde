@@ -6,10 +6,10 @@ Bird[] birdArray;
 
 void setup(){
   size(1200,400);
-  background = loadImage("background.png");
-  dino = loadImage("dino.png");
-  legrup = loadImage("legrup.png");
-  leglup = loadImage("leglup.png");
+  background = loadImage("./images/background.png");
+  dino = loadImage("./images/dino.png");
+  legrup = loadImage("./images/legrup.png");
+  leglup = loadImage("./images/leglup.png");
   bgX=0;
   bgY=0;
   dinoX = 20;

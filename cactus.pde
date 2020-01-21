@@ -5,7 +5,7 @@ public class cactus{
   float cactusY, space;
   
   public cactus(int x){
-    cactus = loadImage("singlecactus.PNG");
+    cactus = loadImage("./images/singlecactus.PNG");
     cactusX = x;
     space = int(random(0, 200));
   }
