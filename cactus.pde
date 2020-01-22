@@ -7,6 +7,7 @@ public class cactus{
  
   
   public cactus(int x){
+
     cactus = loadImage("THEsinglecactus.png");
     
   }

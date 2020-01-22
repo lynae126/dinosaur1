@@ -1,19 +1,30 @@
-PImage dino, background;
-int bgX, bgY, dinoX, dinoY, score, gravity;
+PImage dino, legrup, leglup, background;
+int bgX, bgY, dinoX, dinoY, score, gravity, num = 1;
 boolean gameRun = true;
 cactus c1;
+Bird[] birdArray;
 
 void setup(){
   size(1200,400);
-  background = loadImage("background.png");
-  dino = loadImage("dino.png");
+  background = loadImage("./images/background.png");
+  dino = loadImage("./images/dino.png");
+  legrup = loadImage("./images/legrup.png");
+  leglup = loadImage("./images/leglup.png");
   bgX=0;
   bgY=0;
   dinoX = 20;
   dinoY = 250;
   score = 0;
-  gravity = 6;
+
+  gravity = 7;
+
   c1 = new cactus(10);
+  image(legrup, dinoX, dinoY, 60, 80);
+  image(leglup, dinoX, dinoY, 60, 80);
+  birdArray = new Bird[4];
+  for(int i=0; i<birdArray.length;i++){
+    birdArray [i]=new Bird(width+i*400);
+  }
 }
 
 void draw(){
@@ -22,8 +33,10 @@ void draw(){
     checkKeyPresses();
     gravityPull();
     c1.movecactus();
-  
-    
+
+    animation();
+    moveBird();
+
   }
 }
 
@@ -41,7 +54,7 @@ void checkKeyPresses(){
 }
 
 void gravityPull(){
-  image(dino, dinoX, dinoY, 60, 80);
+  //image(dino, dinoX, dinoY, 60, 80);
     if(dinoY < 250){
      dinoY += gravity;
   }
@@ -52,8 +65,36 @@ void gravityPull(){
 void movebg(){
   image(background,bgX,0,width,height);
   image(background,bgX+width,0,width,height);
-  bgX-=7;
+  bgX-=9;
   if(bgX<-width){
     bgX=0;
   }
+}
+
+
+void animation(){
+
+   switch(num){
+   case 1:
+     image(legrup, dinoX, dinoY+7, 50, 70);
+     num++;
+     break;
+      
+   case 2:
+     image(leglup, dinoX, dinoY+7,50 ,70);
+     num++;
+     break;
+     
+   default:
+     num = 1;
+     image(dino, dinoX, dinoY+7, 50 ,70);
+
+  }
+  delay(70); 
+}
+void moveBird(){
+  for(int i=0; i<birdArray.length;i++){
+    birdArray[i].moveBird(); //call the pipe class methyod for all pipes
+  }
+
 }
