@@ -15,7 +15,9 @@ void setup(){
   dinoX = 20;
   dinoY = 250;
   score = 0;
+
   gravity = 7;
+
   c1 = new cactus(10);
   image(legrup, dinoX, dinoY, 60, 80);
   image(leglup, dinoX, dinoY, 60, 80);
@@ -26,13 +28,15 @@ void setup(){
 }
 
 void draw(){
-  if(gameRun){
+  if(gameRun == true){
     movebg();
     checkKeyPresses();
     gravityPull();
     c1.movecactus();
+
     animation();
     moveBird();
+
   }
 }
 
@@ -40,8 +44,10 @@ void draw(){
 void checkKeyPresses(){
   if(keyPressed){
    if(keyCode == UP){
-     if(dinoY <= 255 && dinoY >=245){
-       dinoY -= 70;
+     while(dinoY <= 255 && dinoY >=245){
+       dinoY -= 100;
+
+       
      }
    }
   }
