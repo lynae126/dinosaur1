@@ -12,16 +12,17 @@ void setup(){
   dinoX = 20;
   dinoY = 250;
   score = 0;
-  gravity = 4;
+  gravity = 6;
   c1 = new cactus(10);
 }
 
 void draw(){
-  if(gameRun){
+  if(gameRun == true){
     movebg();
     checkKeyPresses();
     gravityPull();
     c1.movecactus();
+  
     
   }
 }
@@ -30,8 +31,10 @@ void draw(){
 void checkKeyPresses(){
   if(keyPressed){
    if(keyCode == UP){
-     if(dinoY <= 255 && dinoY >=245){
-       dinoY -= 70;
+     while(dinoY <= 255 && dinoY >=245){
+       dinoY -= 100;
+
+       
      }
    }
   }
