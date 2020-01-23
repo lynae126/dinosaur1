@@ -28,7 +28,8 @@ public class Bird{
       default:
        num = 1;
        image(flapdown, birdX, birdY, 50 ,70);
-  } 
+  }
+  delay(70); 
   }
   void checkCollision(){
     /*if(birdX > dinoX - 30 || birdX < dinoX + 30 ){  

@@ -100,7 +100,6 @@ void moveBird(){
 
 void showScore(){
   textSize(30);
-  fill(0);
   text("Score: " + score, 20,40);
   if(gameRun){
     score+=1;
