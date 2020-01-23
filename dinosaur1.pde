@@ -27,11 +27,12 @@ void setup(){
 }
 
 void draw(){
-  if(gameRun){
+  if(gameRun == true){
     movebg();
     checkKeyPresses();
     gravityPull();
     c1.movecactus();
+
     animation();
     moveBird();
     showScore();
