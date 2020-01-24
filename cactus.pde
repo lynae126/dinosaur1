@@ -8,7 +8,7 @@ public class cactus{
   
   public cactus(int x){
 
-    cactus = loadImage("THEsinglecactus.PNG");
+    cactus = loadImage("THEsinglecactus.png");
     
   }
   
@@ -20,7 +20,7 @@ public class cactus{
       cactusX = width;
      
     }
-    checkKeyPresses();
+    keyPressed();
     checkCollision();
 
     

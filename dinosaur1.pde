@@ -17,8 +17,6 @@ void setup(){
   score = 0;
   gravity = 10;
   c1 = new cactus(10);
-  image(legrup, dinoX, dinoY, 60, 80);
-  image(leglup, dinoX, dinoY, 60, 80);
   birdArray = new Bird[4];
   for(int i=0; i<birdArray.length;i++){
     birdArray [i]=new Bird(width+i*400);
@@ -28,25 +26,43 @@ void setup(){
 void draw(){
   if(gameRun == true){
     movebg();
-    checkKeyPresses();
+    keyPressed();
     gravityPull();
     c1.movecactus();
-
     animation();
     moveBird();
     showScore();
+    checkKeyPress();
   }
 }
 
 
-void checkKeyPresses(){
-  if(keyPressed){
-   if(keyCode == UP){
+void keyPressed(){
+   
+   if(gameRun == false){
+   if(key == 'p'){
+     gameRun = true;
+     score = 0;
+      bgX=0;
+      bgY=0;
+      dinoY = 250;
+      score = 0;
+      for(int i=0; i<birdArray.length;i++){
+        birdArray [i]=new Bird(width+i*400);
+      }
+      gravity = 10;
+      fill(255);
+      rect(200, 40,50,60);
+      draw();
+   }
+  }
+}
+void checkKeyPress(){
+  if(keyCode == UP){
      if(dinoY <= 255 && dinoY >=245){
        dinoY -= 150;
      }
    }
-  }
 }
 
 void gravityPull(){
@@ -105,7 +121,10 @@ void showScore(){
   if(gameRun){
     score++;
     delay(10);
-  }else {
-    text("SCORE: " + score, 1000,40);
+  } else {
+    textSize(20);
+    text("High Score: " + score , 50, 40);
+    text("Click P to play again ", 50, 60);
+
   }
 }
