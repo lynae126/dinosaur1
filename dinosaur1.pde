@@ -6,7 +6,6 @@ Bird[] birdArray;
 
 void setup(){
   size(1200,400);
-  smooth();
   background = loadImage("./images/background.png");
   dino = loadImage("./images/dino.png");
   legrup = loadImage("./images/legrup.png");
@@ -16,7 +15,7 @@ void setup(){
   dinoX = 20;
   dinoY = 250;
   score = 0;
-  gravity = 20;
+  gravity = 10;
   c1 = new cactus(10);
   image(legrup, dinoX, dinoY, 60, 80);
   image(leglup, dinoX, dinoY, 60, 80);
@@ -44,7 +43,7 @@ void checkKeyPresses(){
   if(keyPressed){
    if(keyCode == UP){
      if(dinoY <= 255 && dinoY >=245){
-       dinoY -= 160;
+       dinoY -= 150;
      }
    }
   }
@@ -62,7 +61,7 @@ void gravityPull(){
 void movebg(){
   image(background,bgX,0,width,height);
   image(background,bgX+width,0,width,height);
-  bgX-=30;
+  bgX-=20;
   if(bgX<-width){
     bgX=0;
   }
@@ -90,7 +89,7 @@ void animation(){
 
   }
   }
-  delay(70); 
+  delay(5); 
 }
 void moveBird(){
   for(int i=0; i<birdArray.length;i++){
@@ -102,9 +101,11 @@ void moveBird(){
 void showScore(){
   textSize(30);
   fill(0);
-  text("Score: " + score, 20,40);
+  text("Score: " + score, 1000,40);
   if(gameRun){
-    score+=1;
+    score++;
     delay(10);
+  }else {
+    text("SCORE: " + score, 1000,40);
   }
 }
