@@ -51,6 +51,7 @@ void keyPressed(){
         birdArray [i]=new Bird(width+i*400);
       }
       gravity = 10;
+      c1.cactusX = 200;
       fill(255);
       rect(200, 40,50,60);
       draw();
@@ -58,15 +59,16 @@ void keyPressed(){
   }
 }
 void checkKeyPress(){
+  if(keyPressed){
   if(keyCode == UP){
      if(dinoY <= 255 && dinoY >=245){
        dinoY -= 150;
      }
    }
 }
+}
 
 void gravityPull(){
-  //image(dino, dinoX, dinoY, 60, 80);
     if(dinoY < 250){
      dinoY += gravity;
   }
