@@ -27,12 +27,11 @@ void setup(){
 }
 
 void draw(){
-  if(gameRun == true){
+  if(gameRun){
     movebg();
     checkKeyPresses();
     gravityPull();
     c1.movecactus();
-
     animation();
     moveBird();
     showScore();
@@ -101,7 +100,6 @@ void moveBird(){
 
 void showScore(){
   textSize(30);
-  fill(0);
   text("Score: " + score, 20,40);
   if(gameRun){
     score+=1;
